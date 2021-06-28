@@ -1,32 +1,37 @@
-package com.tanjung.testbarang;
+package com.example.testbarangg;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
+    Button tambahBtn, lihatBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bTambah = (Button) findViewById(R.id.btnTambah);
-        bLihat = (Button) findViewById(R.id.btnLihat);
+        tambahBtn = findViewById(R.id.btnInsert);
+        lihatBtn = findViewById(R.id.btnSelect);
 
-        bTambah.setOnClickListener(new View.OnClickListener() {
+        tambahBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(TambahData.getActIntent(MainActivity.this));
+                Intent intent = new Intent(MainActivity.this,TambahTeman.class);
+                startActivity(intent);
             }
         });
 
-        bLihat.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-
-           }
+        lihatBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, com.example.testbarangg.LihatTeman.class);
+                startActivity(intent);
+            }
         });
     }
 }
